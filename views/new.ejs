@@ -1,0 +1,24 @@
+
+
+<body>
+    <h1>Create a New Car !</h1>
+    <form action="/cars/new" method="POST">
+      <label for="model">Model:</label>
+      <input type="text" name="model" id="model" />
+  
+      <label for="brand">Brand:</label>
+      <input type="text" name="brand" id="brand" />
+  
+      
+      <label for="horsepower">Horsepower:</label>
+      <input type="number" name="horsepower" id="horsepower" />
+
+      <button type="submit">Add Car</button>
+
+    </form>
+    <div>
+        <h2>view collection</h2>
+        <button type="button" onclick="window.location.href='/cars'">View collection</button> 
+    </div>
+  </body>
+  

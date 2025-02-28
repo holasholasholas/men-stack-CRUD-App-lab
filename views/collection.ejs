@@ -1,0 +1,53 @@
+
+<html>
+<head>
+  <title>Car Collection</title>
+  <style>
+    .car-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    .car-item {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 3px;
+    }
+    .btn-danger {
+      background-color: #dc3545;
+    }
+  </style>
+</head>
+<body>
+  <h1>Car Collection</h1>
+  
+  <a href="/cars/new" class="btn">Add New Car</a>
+  
+  <% if (cars.length > 0) { %>
+    <ul class="car-list">
+      <% cars.forEach(car => { %>
+        <li class="car-item">
+          <strong>Model:</strong> <%= car.model %><br>
+          <strong>Brand:</strong> <%= car.make %><br>
+          <strong>Horsepower:</strong> <%= car.horsepower %><br>
+          
+          <form action="/cars/<%= car._id %>?_method=DELETE" method="POST" style="display: inline;">
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a href="/cars/<%= car._id %>/edit" class="btn">Edit</a>
+          </form>
+        </li>
+      <% }) %>
+    </ul>
+  <% } else { %>
+    <p>No cars in the collection yet. Add your first car!</p>
+  <% } %>
+</body>
+</html>
